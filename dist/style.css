@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);* {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, p {
+  font-family: 'open sans', Arial; }
+
+li {
+  list-style-type: none; }
+
+a {
+  text-decoration: none; }
+
+img {
+  width: 100%; }
+
+body {
+  background-color: #1F2229; }
+
+.conteiner {
+  max-width: 710px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .conteiner .boxLeft {
+    width: 50%; }
+    .conteiner .boxLeft .logo {
+      height: 41%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%; }
+    .conteiner .boxLeft .links {
+      background: #191C24;
+      padding-top: 10%;
+      height: 54%; }
+      .conteiner .boxLeft .links li {
+        padding: 5% 5% 5% 10%;
+        color: #fff;
+        font-weight: bold;
+        font-size: 15px; }
+        .conteiner .boxLeft .links li:hover {
+          background: #1F2229;
+          cursor: pointer; }
+      .conteiner .boxLeft .links .active {
+        background: #2A2D37; }
+  .conteiner .boxRight {
+    width: 50%;
+    background-color: #fff;
+    padding: 50px 33px;
+    min-width: 316px; }
+    .conteiner .boxRight h1 {
+      color: #1F2229;
+      font-weight: bold;
+      font-size: 28px;
+      margin-bottom: 7px; }
+    .conteiner .boxRight p {
+      color: #676666;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 22px; }
+    .conteiner .boxRight h3 {
+      font-size: 13px;
+      margin-bottom: 6px; }
+    .conteiner .boxRight .flex {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      justify-content: space-between; }
+    .conteiner .boxRight .rightInfo span {
+      color: #1F2229; }
+    .conteiner .boxRight span {
+      font-weight: 600;
+      line-height: 21px;
+      font-size: 14px;
+      color: #676666;
+      display: block; }
+    .conteiner .boxRight label {
+      font-weight: bold;
+      font-size: 13px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      display: block; }
+    .conteiner .boxRight input {
+      background: #F0F0F0;
+      border-radius: 3px;
+      outline: none;
+      border: 1px solid transparent;
+      height: 1.5em;
+      padding: 10px 18px;
+      font-weight: bold;
+      font-size: 13.2px;
+      letter-spacing: 0.5px; }
+      .conteiner .boxRight input[type="cardNumber"] {
+        width: 12%; }
+      .conteiner .boxRight input::-webkit-input-placeholder {
+        color: #959595; }
+      .conteiner .boxRight input:hover, .conteiner .boxRight input:focus {
+        border: 1px solid #959595; }
+      .conteiner .boxRight input .numberInput:hover {
+        border: 1px solid #959595; }
+    .conteiner .boxRight form #name {
+      text-transform: uppercase;
+      width: 83%; }
+    .conteiner .boxRight form .pointer {
+      color: #959595; }
+    .conteiner .boxRight form select {
+      background: #F0F0F0;
+      border-radius: 3px;
+      outline: none;
+      border: 0;
+      height: 1em;
+      padding: 11px 13px;
+      height: 40px;
+      font-weight: bold;
+      border: 1px solid transparent; }
+      .conteiner .boxRight form select:hover {
+        cursor: pointer; }
+      .conteiner .boxRight form select #day {
+        width: 73px; }
+      .conteiner .boxRight form select #year {
+        width: 88px; }
+    .conteiner .boxRight form #cvc {
+      width: 29px;
+      padding: 11px 16px; }
+    .conteiner .boxRight form #btn {
+      background: #005C9C;
+      border-radius: 3px;
+      padding: 13px 121px;
+      height: 45px;
+      margin-top: 35px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px; }
+      .conteiner .boxRight form #btn:hover {
+        background: #087ecf; }
+      .conteiner .boxRight form #btn:active {
+        background: #005C9C; }
