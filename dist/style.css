@@ -1,4 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);* {
+@charset "UTF-8";
+@font-face {
+  font-family: open sans;
+  /* Имя шрифта */
+  src: url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+  /* Путь к файлу со шрифтом */ }
+
+* {
   margin: 0;
   padding: 0; }
 
@@ -25,47 +32,23 @@ body {
   display: flex; }
   .conteiner .boxLeft {
     width: 50%; }
-    .conteiner .boxLeft .logo {
-      height: 41%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      width: 100%; }
-    .conteiner .boxLeft .links {
-      background: #191C24;
-      padding-top: 10%;
-      height: 54%; }
-      .conteiner .boxLeft .links li {
+    .conteiner .boxLeft .menu {
+      background: #191C24; }
+      .conteiner .boxLeft .menu__item {
         padding: 5% 5% 5% 10%;
         color: #fff;
         font-weight: bold;
         font-size: 15px; }
-        .conteiner .boxLeft .links li:hover {
+        .conteiner .boxLeft .menu__item:hover {
           background: #1F2229;
           cursor: pointer; }
-      .conteiner .boxLeft .links .active {
-        background: #2A2D37; }
+        .conteiner .boxLeft .menu__item_active {
+          background: #2A2D37; }
   .conteiner .boxRight {
     width: 50%;
     background-color: #fff;
     padding: 50px 33px;
     min-width: 316px; }
-    .conteiner .boxRight h1 {
-      color: #1F2229;
-      font-weight: bold;
-      font-size: 28px;
-      margin-bottom: 7px; }
-    .conteiner .boxRight p {
-      color: #676666;
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 22px; }
     .conteiner .boxRight h3 {
       font-size: 13px;
       margin-bottom: 6px; }
@@ -82,6 +65,17 @@ body {
       font-size: 14px;
       color: #676666;
       display: block; }
+    .conteiner .boxRight .cartBlock {
+      position: relative; }
+    .conteiner .boxRight .cartFace, .conteiner .boxRight .cartBack {
+      border-radius: 10px;
+      border: 1px solid; }
+    .conteiner .boxRight .cartBack {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 20%;
+      right: -40%; }
     .conteiner .boxRight label {
       font-weight: bold;
       font-size: 13px;
@@ -106,12 +100,12 @@ body {
         border: 1px solid #959595; }
       .conteiner .boxRight input .numberInput:hover {
         border: 1px solid #959595; }
-    .conteiner .boxRight form #name {
+    .conteiner .boxRight #name {
       text-transform: uppercase;
       width: 83%; }
-    .conteiner .boxRight form .pointer {
+    .conteiner .boxRight .pointer {
       color: #959595; }
-    .conteiner .boxRight form select {
+    .conteiner .boxRight select {
       background: #F0F0F0;
       border-radius: 3px;
       outline: none;
@@ -121,16 +115,16 @@ body {
       height: 40px;
       font-weight: bold;
       border: 1px solid transparent; }
-      .conteiner .boxRight form select:hover {
+      .conteiner .boxRight select:hover {
         cursor: pointer; }
-      .conteiner .boxRight form select #day {
+      .conteiner .boxRight select #day {
         width: 73px; }
-      .conteiner .boxRight form select #year {
+      .conteiner .boxRight select #year {
         width: 88px; }
-    .conteiner .boxRight form #cvc {
+    .conteiner .boxRight #cvc {
       width: 29px;
       padding: 11px 16px; }
-    .conteiner .boxRight form #btn {
+    .conteiner .boxRight #btn {
       background: #005C9C;
       border-radius: 3px;
       padding: 13px 121px;
@@ -140,7 +134,7 @@ body {
       color: #fff;
       font-weight: bold;
       font-size: 14px; }
-      .conteiner .boxRight form #btn:hover {
+      .conteiner .boxRight #btn:hover {
         background: #087ecf; }
-      .conteiner .boxRight form #btn:active {
+      .conteiner .boxRight #btn:active {
         background: #005C9C; }

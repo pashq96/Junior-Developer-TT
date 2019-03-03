@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@font-face {
+    font-family: open sans; /* Имя шрифта */
+    src: url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i'); /* Путь к файлу со шрифтом */
+   } 
 
 @mixin display-flex {
   display: -webkit-box;
@@ -18,7 +21,7 @@ align-items: center;
 }
 
 $black: #1F2229;
-$widthConteiner: 710px;
+$widthConteiner: 960px;
 $white: #fff;
 $dark: #1F2229;
 $gray: #676666;
@@ -41,25 +44,13 @@ body{
     max-width: $widthConteiner;
     margin: 0 auto;
     @include display-flex;
-    
-    .boxLeft{
-        width: 50%;
-        
-        .logo{
-            height: 41%;
-            @include display-flex;
-            @include justify-content-center;
-            @include align-items-center;
-            width: 100%;
-        }
-        
-        .links{
-//            height: 100%;
+//......левая колонка с ссылками...................
+    .boxLeft {
+        width: 35%;
+
+        .menu{
             background: #191C24;
-            padding-top: 10%;
-            height: 54%;
-            
-            li{
+            &__item{
                 padding: 5% 5% 5% 10%;
                 color: $white;
                 font-weight: bold;
@@ -69,32 +60,18 @@ body{
                     background: $dark;
                     cursor: pointer;
                 }
-            }
-            
-            .active{
+                &_active{
                     background: #2A2D37;
                 }
+            }
         }
     }
+
     .boxRight{
-        width: 50%;
+        width: 65%;
         background-color: $white;
-        padding: 50px 33px;
+        padding: 20px 25px;
         min-width: 316px;
-        
-        h1{
-            color: $dark;
-            font-weight: bold;
-            font-size: 28px;
-            margin-bottom: 7px;
-        }
-        
-        p{
-            color: $gray;
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 22px;
-        }
         
         h3{
             font-size: 13px;
@@ -111,13 +88,16 @@ body{
 //                display: inline-block;
 //            }
         
-        .rightInfo{
-//                display: inline-block;
+        .rightInfo {
+            float: right;
+            position: absolute;
+            right: 5px;
+            top: 23%;
                 
             span{
                 color: $dark;
             }
-            }
+        }
         
         span{
             font-weight: 600;
@@ -126,13 +106,48 @@ body{
             color: $gray;
             display: block; 
         }
-        label{
-                font-weight: bold;
-                font-size: 13px;
+        .cartBlock{
+            position: relative;
+            width: 65%;
+        }
+        .cartFace, .cartBack {
+            border-radius: 10px;
+            border: 1px solid;
+            overflow: hidden;
+            padding: 5px 10px;
+        }
+        .cartFace {
+            z-index: 1;
+            position: relative;
+            background-color: white;
+        }
+        .cartBack {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 7%;
+            right: -40%;
+
+
+            &:after{
+                content: '';
+                position: absolute;
+                background-color: #e4e9ee;
+                width:100%;
+                height: 15%;
                 margin-top: 25px;
-                margin-bottom: 10px;
-                display: block;
             }
+        }
+            
+
+
+        label{
+            font-weight: bold;
+            font-size: 13px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: block;
+        }
         input{
             background: #F0F0F0;
             border-radius: 3px;
@@ -146,7 +161,7 @@ body{
             letter-spacing: 0.5px;
 
             &[type="cardNumber"]{
-                width: 12%;
+                width: 10%;
             }
 
             &::-webkit-input-placeholder{
@@ -161,65 +176,61 @@ body{
                 }
         }
 
-        form{
-            #name{
-                text-transform: uppercase;
-                width: 83%;
-            }
-            .pointer{
-                    color: #959595;
-                }
-            select{
-                background: #F0F0F0;
-                border-radius: 3px;
-                outline:none;
-                border: 0;
-                height: 1em;
-                padding: 11px 13px;
-                height: 40px;
-                font-weight: bold;
-                border: 1px solid transparent;
 
-                    &:hover{
-                        cursor: pointer;
-                    }
 
-                #day{
-                    width: 73px; 
-                }
-                
-                #year{
-                    width: 88px;
-                }
-
-                
-            }
-            
-            #cvc{
-                width: 29px;
-                padding: 11px 16px;
-            }
-            
-            #btn{
-                background: #005C9C;
-                border-radius: 3px;
-                padding: 13px 121px;
-                height: 45px;
-                margin-top: 35px;
-                cursor: pointer;
-                
-                color: #fff;
-                font-weight: bold;
-                font-size: 14px;
-
-                    &:hover{
-                        background: #087ecf;
-                    }
-
-                    &:active{
-                        background: #005C9C;
-                    }
-            }
+        #name{
+            text-transform: uppercase;
+            width: 83%;
         }
+        .pointer{
+                color: #959595;
+            }
+        select{
+            background: #F0F0F0;
+            border-radius: 3px;
+            outline:none;
+            border: 0;
+            height: 1em;
+            padding: 11px 13px;
+            height: 40px;
+            font-weight: bold;
+            border: 1px solid transparent;
+
+                &:hover{
+                    cursor: pointer;
+                }
+
+            #day{
+                width: 73px; 
+            }
+            
+            #year{
+                width: 88px;
+            }
+
+            
+        }
+        
+        #cvc{
+            width: 29px;
+            padding: 11px 16px;
+        }
+        
+        #btn{
+            width: 133px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #005abf;
+            margin-top: 50px;
+
+                &:hover{
+                    background: #087ecf;
+                }
+
+                &:active{
+                    background: #005C9C;
+                }
+        }
+        
     }
 }

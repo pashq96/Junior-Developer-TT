@@ -6,48 +6,42 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 <body>
-  <h1 class="text"></h1>
-    <div class="conteiner">
-        <div class="boxLeft">
-            <div class="logo"><a href="#"><img src="img/Group.png" alt="logo"></a></div>
-            <div class="links">
-                <ul>
-                    <li>Первая ссылка</li>
-                    <li class="active">Вторая ссылка(Активная)</li>
-                    <li>Третья ссылка</li>
-                    <li>Четвертая ссылка</li>
-                </ul>
-            </div>
-        </div>
-        <div class="boxRight">
-            <h1>Заголовок страницы</h1>
-            <p>
-               Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает
-            </p>
-            <h3>ИНФОРМАЦИЯ  ПО ОПЛАТЕ</h3>
-            <div class="flex">
-                <div class="leftInfo">
-                    <span>Номер счёта:</span>
-                    <span>Сумма платежа:</span>
-                </div>
-                <div class="rightInfo">
-                    <span>894994949993939</span>
-                    <span>1000 руб.</span>
-                </div>
-            </div>
-            <label>НОМЕР КАРТЫ</label>
-            <!-- Видимая форма карты -->
-            <div>
-                <input class="numberInput" type="cardNumber" id="CardNumber1" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
-                <input class="numberInput" type="cardNumber" id="CardNumber2" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
-                <input class="numberInput" type="cardNumber" id="CardNumber3" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
-                <input class="numberInput" type="cardNumber" id="CardNumber4" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
-            </div>
-            <form action="" id="form">
-                <!-- Невидимая форма карты(форма для отправки. Сюда копируется текст с видимой формы в формате БЕЗ ПРОБЕЛОВ) -->
+  <div class="conteiner">
+      <div class="boxLeft">
+          <nav class="menu">
+              <ul class="menu__list">
+                  <li class="menu__item">Личный кабинет</li>
+                  <li class="menu__item menu__item_active">Платежи (активная)</li>
+                  <li class="menu__item">История платежей</li>
+                  <li class="menu__item">Настройки</li>
+                  <li class="menu__item">Выйти</li>
+              </ul>
+          </nav>
+      </div>
+      <div class="boxRight">
+          <h3>информация по оплате:</h3>
+          <div class="flex">
+              <div class="">
+                  <span>Номер счёта:</span>
+                  <span>Сумма платежа:</span>
+              </div>
+              <div class="">
+                  <span>894994949993939</span>
+                  <span>1000 руб.</span>
+              </div>
+          </div>
+          <div class="cartBlock">
+            <div class="cartFace">
+              <label>НОМЕР КАРТЫ</label>
+              <!-- Видимая форма ввода номера карты -->
+              <div>
+                  <input class="numberInput" type="cardNumber" id="CardNumber1" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
+                  <input class="numberInput" type="cardNumber" id="CardNumber2" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
+                  <input class="numberInput" type="cardNumber" id="CardNumber3" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
+                  <input class="numberInput" type="cardNumber" id="CardNumber4" value="" maxlength="4" onkeyup="test(this);validate(this);return false;" oninput="validate(this);test(this);return false;" placeholder="XXXX">
+              </div>
+                <!-- Невидимая форма ввода номера карты(форма для отправки. Сюда копируется текст с видимой формы в формате БЕЗ ПРОБЕЛОВ) -->
                 <input  class="field" type="text" id="Card" name="Номер карты" value="" readonly="" autocomplete="off" spellcheck="false" style="display: none;">
-                <label>ДЕРЖАТЕЛЬ КАРТЫ</label>
-                <input class="field" id="name"  type="name" value=""  placeholder="IVANOV IVAN" onkeyup="validatename(this);return false;" oninput="validatename(this);return false;">
                 <div class="flex">
                     <div class="leftInfo">
                         <label>СРОК ДЕЙСТВИЯ</label>
@@ -208,18 +202,27 @@
                           <option value="2099">2099</option>
                       </select>
                     </div>
-                    <div class="rightInfo">
-                        <label>CVC</label>
-                        <input  class="field" type="text" id="cvc"  value="" maxlength="3" onkeyup="validate(this);return false;" oninput="validate(this);return false;" placeholder="XXX">
-                    </div>
                 </div>
-                <input type='submit' id='btn' value='ОПЛАТИТЬ'/>
-            </form>
-        </div>
-    </div>
+                <label>ДЕРЖАТЕЛЬ КАРТЫ</label>
+                <input class="field" id="name"  type="name" value=""  placeholder="IVANOV IVAN" onkeyup="validatename(this);return false;" oninput="validatename(this);return false;">
+                
+            </div>
+            <div class="cartBack">
+              <div class="rightInfo">
+                  <label>CVC</label>
+                  <input  class="field" type="text" id="cvc"  value="" maxlength="3" onkeyup="validate(this);return false;" oninput="validate(this);return false;" placeholder="XXX">
+              </div>
+            </div>
+          </div>
+          <input type='submit' id='btn' value='ОПЛАТИТЬ'/>
+      </div>
+      
+  </div>
+  <footer>
+    
+  </footer>
 
 
-
-    <script src="dist/main.js"></script>
+  <script src="dist/main.js"></script>
 </body>
 </html>
