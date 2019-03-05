@@ -1,92 +1,111 @@
 import $ from 'jquery';
 
 
-var form = document.querySelector('#form')
-var fields = form.querySelectorAll('.field')
-var numberInput = document.getElementsByClassName('numberInput')
-var day = document.getElementById('day')
+// Создание формы
+$('#btn').click(function(){
+    //Записывает в форму номер карты 
+    $('#Card').val($('#CardNumber1').val()+$('#CardNumber2').val()+$('#CardNumber3').val()+$('#CardNumber4').val());
+    $('#mmyyyyExpiration').val($('#month').val()+ "/" +$('#year').val())
+    $('#nameCard').val($('#name').val())
+    $('#CVCCard').val($('#cvc').val());
 
-// Записывает в number номер карты и делает переносит фокус 
-// по инпутам
-function test(obj) {
-var inp1 = document.getElementById('CardNumber1');
-var inp2 = document.getElementById('CardNumber2');
-var inp3 = document.getElementById('CardNumber3');
-var inp4 = document.getElementById('CardNumber4');
-var number = document.getElementById('Card');
-number.value = inp1.value + '' + inp2.value + '' + inp3.value + '' + inp4.value;
-    if (obj.value.length == 4) {
-        var next = obj.nextSibling;
-        while(next.nodeType != 1 && next.nextSibling)
-            next = next.nextSibling
-        if (next.nodeType == 1)
-            next.focus()
-    }
-}
-// валидация номера карты
-function validate(inp) {
-inp.value = inp.value.replace(/[^0-9]/, "")
-}
-// валидация имени
-function validatename(inp){
-    inp.value = inp.value.replace(/[^A-Za-z\s]/, "")
-}
+    $('form').on('submit', function(event) {
+        if ( validateForm() ) { // если есть ошибки возвращает true
+          event.preventDefault();
+        }
+    });
+    
 
-// проверка формы
-form.addEventListener('submit', function (event) {
-	var name = document.querySelector('#name')
-    var Card = document.getElementById('Card')
-    var cvc = document.getElementById('cvc')
-
-// обнуление ошибок
-    errorValid()
-// проверка инпутов с классом field
-	fieldsValid()
-// проверка имени 
-	nameValid(name)
-// проверка карты 
-    cardValid(Card)
-// проверка cvc
-    cvcValid(cvc)
+    // // проверка имени 
+    //     nameValid(name)
+    // // проверка cvc
+    //     cvcValid(cvc)
 })
 
-function errorValid(){
-	for (var i = 0; i < fields.length; i++) {
-	    fields[i].style.border= "1px solid transparent"
-  	}
-	for (var i = 0; i < numberInput.length; i++) {
-    numberInput[i].style.border= "1px solid transparent"
-	}
+function validateForm() {
+    $(".errorValid").removeClass('errorValid');
+    let vNum;
+    let vExpiration;
+    let vNameCard;
+    let vCVCCard;
+
+
+    //Проверяет заполнение всех полей номера карты
+    if($("#Card").val().length != 16) {
+        vNum = true;
+        $('.numberInput').addClass('errorValid')
+    }else{vNum = false;}
+    
+    // var d = new Date();
+    // var strDate =(d.getMonth()+1) + "/" +d.getFullYear();
+    // console.log(strDate.match(/.{2}/))
+
+
+    // Проверка заолнения даты
+    if($('#mmyyyyExpiration').val().length != 7) {
+        vExpiration = true;
+        $('.MMYYYYselect').addClass('errorValid')
+    }else{vExpiration = false;}
+
+    // Проверка заолнения имени
+    if($("#nameCard").val().length < 4) {
+        vNameCard = true;
+        $('#name').addClass('errorValid')
+    }else{vNameCard = false;}
+
+    // Проверка заолнения cvc
+    if($("#CVCCard").val().length < 3) {
+        vCVCCard = true;
+        $('#cvc').addClass('errorValid')
+    }else{vCVCCard = false;}
+
+
+    return (vNum || vExpiration || vNameCard || vCVCCard);
 }
 
-function fieldsValid(){
-	for (var i = 0; i < fields.length; i++) {
-	    if (!fields[i].value) {
-	        fields[i].style.border= "1px solid red"
-	        event.preventDefault()
-	    }
-  	}
-}
+$("input[type='cardNumber'], #cvc").on('input keyup', function(e) {
 
-function nameValid(name){
-	if(!name.value || name.value.length < 4){
-        name.style.border= "1px solid red"
-        event.preventDefault()
+    //Позволяет вводить только цифры в номер карты
+    if (this.value.match(/[^0-9]/g)) {
+        this.value = this.value.replace(/[^0-9]/g, '');
     }
-}
 
-function cardValid(Card){
-	if(!Card.value || Card.value.length < 16){
-    	for (var i = 0; i < numberInput.length; i++) {
-        numberInput[i].style.border= "1px solid red"
-        event.preventDefault()
-    	}
+    // переносит фокус по инпутам внутри #inpWrap
+    if($(this).val().length >= 4) {
+        $(this).next('input').focus();
     }
-}
+})
 
-function cvcValid(cvc){
-	if(!cvc.value || cvc.value.length < 3){
-        cvc.style.border= "1px solid red"
-        event.preventDefault()
+$("input[type='name']").on('input keyup', function(e) {
+
+    //Позволяет вводить только заглавные латинские буквы в "Держатель карты"
+    if (this.value.match(/[^A-Za-z\s]/g)) {
+        this.value = this.value.replace(/[^A-Za-z\s]/g, '');
     }
-}
+})
+
+// ------------------------------------------------------
+
+// function fieldsValid(){
+// 	for (var i = 0; i < fields.length; i++) {
+// 	    if (!fields[i].value) {
+// 	        fields[i].style.border= "1px solid red"
+// 	        event.preventDefault()
+// 	    }
+//   	}
+// }
+
+// function nameValid(name){
+// 	if(!name.value || name.value.length < 4){
+//         name.style.border= "1px solid red"
+//         event.preventDefault()
+//     }
+// }
+
+
+// function cvcValid(cvc){
+// 	if(!cvc.value || cvc.value.length < 3){
+//         cvc.style.border= "1px solid red"
+//         event.preventDefault()
+//     }
+// }
