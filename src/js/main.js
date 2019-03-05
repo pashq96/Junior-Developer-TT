@@ -3,23 +3,17 @@ import $ from 'jquery';
 
 // Создание формы
 $('#btn').click(function(){
-    //Записывает в форму номер карты 
+    //Заполняем невидимую форму
     $('#Card').val($('#CardNumber1').val()+$('#CardNumber2').val()+$('#CardNumber3').val()+$('#CardNumber4').val());
     $('#mmyyyyExpiration').val($('#month').val()+ "/" +$('#year').val())
     $('#nameCard').val($('#name').val())
     $('#CVCCard').val($('#cvc').val());
 
-    $('form').on('submit', function(event) {
+    $('form').submit(function( event ) {
         if ( validateForm() ) { // если есть ошибки возвращает true
           event.preventDefault();
         }
     });
-    
-
-    // // проверка имени 
-    //     nameValid(name)
-    // // проверка cvc
-    //     cvcValid(cvc)
 })
 
 function validateForm() {
@@ -60,7 +54,7 @@ function validateForm() {
     }else{vCVCCard = false;}
 
 
-    return (vNum || vExpiration || vNameCard || vCVCCard);
+    return (vNum || vExpiration || vNameCard || vCVCCard)
 }
 
 $("input[type='cardNumber'], #cvc").on('input keyup', function(e) {
@@ -83,29 +77,3 @@ $("input[type='name']").on('input keyup', function(e) {
         this.value = this.value.replace(/[^A-Za-z\s]/g, '');
     }
 })
-
-// ------------------------------------------------------
-
-// function fieldsValid(){
-// 	for (var i = 0; i < fields.length; i++) {
-// 	    if (!fields[i].value) {
-// 	        fields[i].style.border= "1px solid red"
-// 	        event.preventDefault()
-// 	    }
-//   	}
-// }
-
-// function nameValid(name){
-// 	if(!name.value || name.value.length < 4){
-//         name.style.border= "1px solid red"
-//         event.preventDefault()
-//     }
-// }
-
-
-// function cvcValid(cvc){
-// 	if(!cvc.value || cvc.value.length < 3){
-//         cvc.style.border= "1px solid red"
-//         event.preventDefault()
-//     }
-// }
